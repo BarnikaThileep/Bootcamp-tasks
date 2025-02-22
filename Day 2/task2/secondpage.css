@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: blanchedalmond;
+
+}
+header {
+    background: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+
+.product1 {
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    font-size: large;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+    
+.product2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    font-size: large;
+    text-align: justify;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    
+}
+img {
+    width: 20%;
+    height: 200px
+}
+.button{
+    background: #de5b1a;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    
+}

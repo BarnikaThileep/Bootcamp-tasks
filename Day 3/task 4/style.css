@@ -1,0 +1,52 @@
+*{
+    margin: 10px;
+    padding:0px;
+    box-sizing:border-box;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+.container{
+  width: 100%;  
+}
+.container .row{
+    width: 80%;
+    margin: auto; 
+}
+.container .row .header{
+    width: 60%;
+    text-align: center;
+    margin: auto;
+}
+.img{
+    width: 40px;
+    height: 40px;
+}
+.container .row .header h1{
+    padding-top: 30px;
+    font-size: 45px;
+    color: aquamarine;
+
+}
+.container .row .header p{
+    margin-top: 15px;
+    font-size:18px;
+    line-height: 1.5;
+    color:rgb(26, 24, 23);
+
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+}
+.content .card{
+    flex:1;
+    margin: 50px 20px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+.content .card img{
+    width: 80%;
+    height: 500px;
+}

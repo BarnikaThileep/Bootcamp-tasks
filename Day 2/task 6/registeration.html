@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #686085; }
+        .container { background: rgb(165, 136, 208); padding: 70px; border-radius: 30px; box-shadow: 0 0 150px rgba(53, 204, 212, 0.1); }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; margin-bottom: 5px; }
+        .input-group input { width: 90%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .error { color: red; font-size: 12px; display: none; }
+        .submit-btn { background: blue; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="input-group">
+                <label for="name">Dept</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+                <span class="error" id="emailError">Invalid email format</span>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+                <span class="error" id="passwordError">Password must be at least 6 characters</span>
+            </div>
+            <div class="input-group">
+                <label for="phonenumber">Phone Number</label>
+                <input type="phonenumber" id="phonenumber" required>
+                <span class="error" id="phonenumberError">Phonenumber must be at least 10 characters</span>
+            </div>
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            let email = document.getElementById('email');
+            let emailError = document.getElementById('emailError');
+            let password = document.getElementById('password');
+            let passwordError = document.getElementById('passwordError');
+            let isValid = true;
+            
+            if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+            
+            if (password.value.length < 6) {
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+            if (!isValid) {
+                event.preventDefault();
+            } else {
+                event.preventDefault();
+                alert('Registration successful!');
+            }
+            
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

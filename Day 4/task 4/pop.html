@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Popup</title>
+    <link rel="stylesheet" href="pop.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Button styling */
+        .open-modal-btn {
+            padding: 10px 20px;
+            background-color: whitesmoke;
+            color: violet;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Modal background */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Modal content */
+        .modal-content {
+            background-color:darksalmon;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .image{
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body style="background-image: url('theatre.jpg');">
+   
+    <div class="container">
+    <div class="image">
+    <h1>hello</h1>     
+    <button class="open-modal-btn">Buy Now</button>
+</div>
+</div>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            
+            <h2>2 Tickets</h2>
+            <p>Reservation Confirm<br><br/>
+             </p>
+            
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("myModal");
+        const openBtn = document.querySelector(".open-modal-btn");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Open modal
+        openBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Close modal when clicking the close button
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

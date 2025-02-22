@@ -1,0 +1,37 @@
+body{
+    background-color:black
+}
+h1{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+}
+p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    font-weight: 100;
+    padding: auto;
+    text-align: justify;
+    margin: 10px 0; /* Spacing outside paragraph */
+    padding: 5px; /* Space inside paragraph */
+    border: 1px lab(lightness a b) #ddd; /* Gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+}
+body img{
+    width: 60px;
+}
+.box {
+    width: 1100px; /* Set the width */
+    padding: 90px; /* Add padding inside the box */
+    border: 2px solid black; /* Create a border */
+    background-color:aliceblue; /* Add a background color */
+    border-radius: 10px; /* Make rounded corners */
+    text-align: center; /* Center text inside */
+    margin: 90px;
+}
+h2{
+    font-size: xx-large;
+}
+h3{
+    font-size: xx-large;
+}

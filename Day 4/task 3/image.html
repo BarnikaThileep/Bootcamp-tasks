@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless Looping Image Slider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #e3dfe4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-bottom: 15px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .slider-container {
+            position: relative;
+            max-width: 600px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 30px 20px rgba(219, 210, 97, 0.2);
+            background: white;
+            padding: 10px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /*
+        .slides {
+            display: flex;
+            width: 600%;  Adjusted for seamless looping 
+            transition: transform 0.5s ease-in-out;
+        }   */
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            display: block;
+            border-radius: 8px;
+            margin: 6px;
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        
+        /* Animation */
+        .slide {
+            animation: slide-in 0.5s ease-in-out;
+        }
+        @keyframes slide-in {
+            from {
+                transform: scale(0.9);
+                opacity: 0.5;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>International Places</h1>
+    
+    <div class="slider-container">
+        <div class="slides">
+            <!-- Duplicate Last Image (For Seamless Backward Transition) -->
+            <div class="slide"><img src="mala.jpg" alt="Duplicate Last"></div>
+            
+            <div class="slide"><img src="paris.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="switzu.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="mal.jpg" alt="Slide 3"></div>
+            <div class="slide"><img src="south.jpg" alt="Slide 4"></div>
+            <div class="slide"><img src="mala.jpg" alt="Slide 5"></div>
+            
+            <!-- Duplicate First Image (For Seamless Forward Transition) -->
+            <div class="slide"><img src="paris.jpg" alt="Duplicate First"></div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    
+    <script>
+        let index = 1;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        const slideWidth = 100 / totalSlides;
+
+        function moveSlide(step) {
+            index += step;
+            slides.style.transition = "transform 0.5s ease-in-out";
+            slides.style.transform = `translateX(${-index * 100}%)`;
+
+            // Forward Looping Fix
+            if (index === totalSlides - 1) {
+                setTimeout(() => {
+                    slides.style.transition = "none";
+                    index = 1;
+                    slides.style.transform = `translateX(${-index * 100}%)`;
+                }, 500);
+            }
+
+            // Backward Looping Fix
+            if (index === 0) {
+                setTimeout(() => {
+                    slides.style.transition = "none";
+                    index = totalSlides - 2;
+                    slides.style.transform = `translateX(${-index * 100}%)`;
+                }, 500);
+            }
+        }
+
+        // Auto Slide Every 3 Seconds
+        setInterval(() => moveSlide(1), 3000);
+    </script>
+</body>
+</html>

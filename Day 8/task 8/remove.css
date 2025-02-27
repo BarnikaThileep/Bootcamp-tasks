@@ -1,0 +1,22 @@
+.freshman {
+    background-color: yellow;
+  }
+  
+
+  .junior {
+    background-color: rgb(194, 75, 205);
+  }
+  
+  .senior {
+    background-color: rgb(57, 90, 233);
+  }
+  
+  .default {
+    background-color: gray;
+  }
+  .student-card button {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+  
